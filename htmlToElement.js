@@ -33,7 +33,7 @@ const Img = props => {
     width,
     height,
   };
-  return <AutoSizedImage source={source} style={imgStyle} />;
+  return <AutoSizedImage source={source} style={imgStyle} action={this.props.imageAction || () => {}}/>;
 };
 
 export default function htmlToElement(rawHtml, customOpts = {}, done) {
