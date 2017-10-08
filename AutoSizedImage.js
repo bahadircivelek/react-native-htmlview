@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {
   Image,
   Dimensions,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 const {width} = Dimensions.get('window');
@@ -51,6 +52,10 @@ export default class AutoSizedImage extends PureComponent {
       source = Object.assign(source, this.props.source, finalSize);
     }
 
-    return <Image style={style} source={source} />;
+    return (
+      <TouchableWithoutFeedback onPress={() => this.props.imageAction(source)}>
+        <Image style={style} source={source} />
+      </TouchableWithoutFeedback>
+     );
   }
 }
